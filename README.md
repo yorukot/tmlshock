@@ -3,7 +3,7 @@ Terminal ttl clock, including customizable clock and stopwatch
 
 ## Features
 
-[![feature](https://github.com/MHNightCat/tshock/blob/main/img/feature.png)]
+![feature](https://github.com/MHNightCat/tshock/blob/main/img/feature.png)
 
 ## Contents
 * [Install](#install)
