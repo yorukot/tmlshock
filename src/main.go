@@ -65,10 +65,10 @@ func main() {
 			},
 		},
 	}
-	app.Name = "tshock"
-	app.Version = "0.5"
-	app.Usage = "a beauty clock and stopwatch"
-	app.UsageText = "tshock [command] [option]"
+	app.Name = "tmlshock"
+	app.Version = "1.0"
+	app.Usage = "A terminal ttl clock and stopwatch build by golang "
+	app.UsageText = "tmlshock [command] [option]"
 
 	if err := app.Run(os.Args); err != nil {
 		log.Fatal(err)

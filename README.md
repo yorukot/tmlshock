@@ -11,7 +11,7 @@ Terminal ttl clock, including customizable clock and stopwatch
 * [Setting](#setting)
   * [Color](#color)
   * [Disable second](#disable-second)
-  * [Enable date](#disable-date)
+  * [Enable date](#enable-date)
   * [Date formate](#date-formate)
 
 ## Install
@@ -62,7 +62,7 @@ tmlshock clock -c red
 ```
 ![red-clock](https://github.com/MHNightCat/tmlshock/blob/main/img/red-clock.png)
 
-### Disable-secnod
+### Disable-second
 
 To disable the second just enter `-s false`
 
