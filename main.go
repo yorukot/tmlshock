@@ -129,7 +129,7 @@ func main() {
 		},
 	}
 	app.Name = "tmlshock"
-	app.Version = "1.0"
+	app.Version = "1.2"
 	app.Usage = "A terminal ttl clock and stopwatch build by golang "
 	app.UsageText = "tmlshock [command] [option]"
 
