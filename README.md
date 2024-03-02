@@ -16,6 +16,8 @@ Terminal ttl clock, including customizable clock and stopwatch
 
 ## Install
 
+see [release](https://github.com/MHNightCat/tmlshock/releases)
+
 ## Usage
 run clock:
 ```sh
