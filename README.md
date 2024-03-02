@@ -18,6 +18,12 @@ Terminal ttl clock, including customizable clock and stopwatch
 
 see [release](https://github.com/MHNightCat/tmlshock/releases)
 
+download tmlshock file and move it to /usr/local/bin
+
+```sh
+sudo mv ./tmlshock /usr/local/bin
+```
+
 ## Usage
 run clock:
 ```sh
