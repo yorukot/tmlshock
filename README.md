@@ -9,10 +9,10 @@ Terminal ttl clock, including customizable clock and stopwatch
 * [Install](#install)
 * [Usage](#Usage)
 * [Setting](#setting)
-  *[Color](#color)
-  *[Disable second](#disable-second)
-  *[Enable date](#disable-date)
-  *[Date formate](#date-formate)
+  * [Color](#color)
+  * [Disable second](#disable-second)
+  * [Enable date](#disable-date)
+  * [Date formate](#date-formate)
 
 ## Install
 
@@ -62,7 +62,7 @@ tshock clock -c red
 ```
 ![red-clock](https://github.com/MHNightCat/tshock/blob/main/img/red-clock.png)
 
-### Disable secnod
+### Disable-secnod
 
 To disable the second just enter `-s false`
 
@@ -73,7 +73,7 @@ tshock clock -s false
 
 ![no-sec-clock](https://github.com/MHNightCat/tshock/blob/main/img/no-sec-clock.png)
 
-### Enable date
+### Enable-date
 
 To enable the date just enter `-d true`
 
@@ -84,7 +84,7 @@ tshock clock -d true
 
 ![date-clock](https://github.com/MHNightCat/tshock/blob/main/img/date-clock.png)
 
-### Date formate
+### Date-formate
 
 To use a custom date format just enter `-df 2006/02/01`(YYYY/MM/DD)
 
