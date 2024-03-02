@@ -1,11 +1,9 @@
 ## About tmlshock
 Terminal ttl clock, including customizable clock timer and stopwatch
 
-## Features
-
 ![feature](https://github.com/MHNightCat/tmlshock/blob/main/img/feature.png)
 
-## Contents
+# Contents
 * [Install](#install)
 * [Usage](#Usage)
   * [Clock](#clock)
@@ -19,7 +17,7 @@ Terminal ttl clock, including customizable clock timer and stopwatch
   * [Date formate](#date-formate)
   * [Disable hour](#disable-hour)
   * [12 hours format](#12-hours-format)
-## Install
+# Install
 
 see [release](https://github.com/MHNightCat/tmlshock/releases)
 
@@ -29,7 +27,7 @@ download tmlshock file and move it to /usr/local/bin
 sudo mv ./tmlshock /usr/local/bin
 ```
 
-## Usage
+# Usage
 ```
 COMMANDS:
    stopwatch, s  Start a stopwatch
@@ -43,7 +41,7 @@ GLOBAL OPTIONS:
    --version, -v            print the version
 ```
 
-### Clock
+## Clock
 ```
 NAME:
    tmlshock clock - Start a clock
@@ -61,7 +59,7 @@ OPTIONS:
    --help, -h                             show help
 ```
 
-### Stopwatch
+## Stopwatch
 ```
 USAGE:
    tmlshock stopwatch [command options] [arguments...]
@@ -73,7 +71,7 @@ OPTIONS:
    --help, -h                        show help
 ```
 
-### Timer
+## Timer
 ```
 USAGE:
    tmlshock timer [command options] [arguments...]
@@ -102,7 +100,7 @@ lazy:
 tmlshock timer -t 1:20:01
 ```
 
-## Setting
+# Setting
 
 ## **Color**
 
