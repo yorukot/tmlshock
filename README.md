@@ -10,28 +10,44 @@ Terminal ttl clock, including customizable clock and stopwatch
 * [Usage](#Usage)
 * [Setting](#setting)
   * [Color](#color)
+    * [Colon color](#colon-color)
   * [Disable second](#disable-second)
   * [Enable date](#enable-date)
   * [Date formate](#date-formate)
-
+  * [Disable hour](#disable-hour)
+  * [12 hours format](#12-hours-format)
 ## Install
 
 see [release](https://github.com/MHNightCat/tmlshock/releases)
 
 download tmlshock file and move it to /usr/local/bin
 
-```sh
+```bash
 sudo mv ./tmlshock /usr/local/bin
 ```
 
 ## Usage
-run clock:
-```sh
+
+### clock
+```bash
 tmlshock clock
 ```
-run stopwatch:
-```sh
+### stopwatch
+```bash
 tmlshock stopwatch
+```
+
+### timer
+You can set the timer time using two types
+
+classic:
+```bash
+tmlshock timer -hr 1 -m 1 -s 1
+```
+
+lazy:
+```bash
+tmlshock timer -t 1:20:01
 ```
 
 ## Setting
@@ -65,17 +81,28 @@ yellow
 ```
 
 Example:
-```sh
+```bash
 tmlshock clock -c red
 ```
 ![red-clock](https://github.com/MHNightCat/tmlshock/blob/main/img/red-clock.png)
+
+### **Colon-color**
+
+To use a custom colon color just enter `-cc color`
+
+**Example**
+```bash
+tmlshock clock -cc color
+```
+
+![custom-colon-color](https://github.com/MHNightCat/tmlshock/blob/main/img/custom-colon-color.png)
 
 ## **Disable-second**
 
 To disable the second just enter `-s false`
 
 **Example**
-```sh
+```bash
 tmlshock clock -s false
 ```
 
@@ -86,7 +113,7 @@ tmlshock clock -s false
 To enable the date just enter `-d true`
 
 **Example**
-```sh
+```bash
 tmlshock clock -d true
 ```
 
@@ -97,19 +124,40 @@ tmlshock clock -d true
 To use a custom date format just enter `-df 2006/02/01`(YYYY/MM/DD)
 
 **Example**
-```sh
+```bash
 tmlshock clock -d true -df 2006/01/02 
 ```
 (YYYY/DD/MM)
 
 ![date-format-clock](https://github.com/MHNightCat/tmlshock/blob/main/img/date-format-clock.png)
 
-```sh
+```bash
 tmlshock clock -d true -df 02/01/2006
 ```
 (MM/DD/YYYY)
 
 ![date-format-2-clock](https://github.com/MHNightCat/tmlshock/blob/main/img/date-format-2-clock.png)
 
+## **Disable-hour**
 
+* This option only for stopwatch and timer
 
+To use a custom date format just enter `-dh true`(YYYY/MM/DD)
+
+**Example**
+```bash
+tmlshock stopwatch -dh true
+```
+
+![disable-hour-stopwatch](https://github.com/MHNightCat/tmlshock/blob/main/img/disable-hour-stopwatch.png)
+
+## **12-hours-format**
+
+* This option only for clock
+
+To use a custom date format just enter `-hf 12`(YYYY/MM/DD)
+
+**Example**
+```bash
+tmlshock clock -hf 12
+```

@@ -68,7 +68,7 @@ func main() {
 						Usage:   "Enter how many seconds you want to count down",
 					},
 					&cli.StringFlag{
-						Name:    "timerTime",
+						Name:    "time",
 						Aliases: []string{"t"},
 						Usage:   "Enter how many time you want to count down(format: 00:00:00)",
 					},
@@ -118,6 +118,11 @@ func main() {
 						Name:    "colon-color",
 						Aliases: []string{"cc"},
 						Usage:   "Set the colon color (https://github.com/MHNightCat/tmlshock?tab=readme-ov-file#color)",
+					},
+					&cli.StringFlag{
+						Name:    "hour-format",
+						Aliases: []string{"hf"},
+						Usage:   "Set the clock 24 hr or 12hr (type 24 or 12)",
 					},
 				},
 			},

@@ -3,6 +3,7 @@ package util
 import (
 	"fmt"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/nsf/termbox-go"
@@ -30,8 +31,16 @@ func StopwatchFormatTimeWihtoutHour(d time.Duration) string {
 	return fmt.Sprintf("%02d:%02d.%03d", minutes, seconds, milliseconds)
 }
 
-func formatTime(d time.Time) string {
-	hours := d.Hour()
+func formatTime(d time.Time, use12HourFormat bool) string {
+	var hours int
+	if use12HourFormat {
+		hours = d.Hour() % 12
+		if hours == 0 {
+			hours = 12
+		}
+	} else {
+		hours = d.Hour()
+	}
 	minutes := d.Minute()
 	seconds := d.Second()
 	return fmt.Sprintf("%02d:%02d:%02d", hours, minutes, seconds)
@@ -86,4 +95,29 @@ func FlagColor(ColorString string) termbox.Attribute {
 			return termbox.Attribute(num)
 		}
 	}
+}
+
+func timeStringToSeconds(timeStr string) (int, error) {
+	parts := strings.Split(timeStr, ":")
+	if len(parts) != 3 {
+		return 0, fmt.Errorf("时间格式错误")
+	}
+
+	hours, err := strconv.Atoi(parts[0])
+	if err != nil {
+		return 0, err
+	}
+
+	minutes, err := strconv.Atoi(parts[1])
+	if err != nil {
+		return 0, err
+	}
+
+	seconds, err := strconv.Atoi(parts[2])
+	if err != nil {
+		return 0, err
+	}
+
+	totalSeconds := hours*3600 + minutes*60 + seconds
+	return totalSeconds, nil
 }

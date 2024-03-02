@@ -27,6 +27,12 @@ func Timer(cCtx *cli.Context) error {
 	hour, _ := strconv.Atoi(cCtx.String("hour"))
 
 	total := hour*60*60 + min*60 + sec*60
+
+	if cCtx.String("time") != "" {
+		seconds, _ := timeStringToSeconds(cCtx.String("time"))
+		total = total + seconds
+	}
+
 	if total == 0 {
 		total = 300
 	}
@@ -40,15 +46,23 @@ func Timer(cCtx *cli.Context) error {
 		duration := time.Duration(total) * time.Second
 		end := time.Now().Add(duration)
 		for {
-
 			termWidth, termHeight := termbox.Size()
 			current := time.Until(end)
 			termbox.Clear(termbox.ColorDefault, termbox.ColorDefault)
 			NowTime := ""
+
 			if cCtx.String("disable-hour") == "true" {
-				NowTime = StopwatchFormatTimeWihtoutHour(current)
+				if current <= 0 {
+					NowTime = "00:00.000"
+				} else {
+					NowTime = StopwatchFormatTimeWihtoutHour(current)
+				}
 			} else {
-				NowTime = StopwatchFormatTime(current)
+				if current <= 0 {
+					NowTime = "00:00:00.000"
+				} else {
+					NowTime = StopwatchFormatTime(current)
+				}
 			}
 			diff := -38
 			totalString := 12
@@ -70,8 +84,8 @@ func Timer(cCtx *cli.Context) error {
 					CaseNumber(termWidth, termHeight, color, NowTime[i], diff)
 				}
 			}
-
 			termbox.Flush()
+
 			time.Sleep(time.Millisecond)
 		}
 	}()

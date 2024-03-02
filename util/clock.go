@@ -26,14 +26,17 @@ func Clock(cCtx *cli.Context) error {
 		colonColor = FlagColor(cCtx.String("color"))
 	}
 	termbox.Clear(termbox.ColorDefault, termbox.ColorDefault)
-
+	use12HourFormat := false
+	if (cCtx.String("color") == "hour-format"){
+		use12HourFormat = true
+	}
 	go func() {
 		for {
 			termWidth, termHeight := termbox.Size()
 			current := time.Now()
 			termbox.Clear(termbox.ColorDefault, termbox.ColorDefault)
 
-			NowTime := formatTime(current)
+			NowTime := formatTime(current, use12HourFormat)
 
 			diff := 0
 			totalString := 0
