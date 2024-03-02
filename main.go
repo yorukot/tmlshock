@@ -130,7 +130,7 @@ func main() {
 	}
 	app.Name = "tmlshock"
 	app.Version = "1.2"
-	app.Usage = "A terminal ttl clock and stopwatch build by golang "
+	app.Usage = "A terminal ttl clock timer and stopwatch build by golang "
 	app.UsageText = "tmlshock [command] [option]"
 
 	if err := app.Run(os.Args); err != nil {

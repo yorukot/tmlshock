@@ -1,5 +1,5 @@
 ## About tmlshock
-Terminal ttl clock, including customizable clock and stopwatch
+Terminal ttl clock, including customizable clock timer and stopwatch
 
 ## Features
 
