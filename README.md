@@ -36,7 +36,7 @@ tmlshock stopwatch
 
 ## Setting
 
-### Color
+## **Color**
 
 You can use color codes (down below) or use color names
 
@@ -70,33 +70,33 @@ tmlshock clock -c red
 ```
 ![red-clock](https://github.com/MHNightCat/tmlshock/blob/main/img/red-clock.png)
 
-### Disable-second
+## **Disable-second**
 
 To disable the second just enter `-s false`
 
-Example
+**Example**
 ```sh
 tmlshock clock -s false
 ```
 
 ![no-sec-clock](https://github.com/MHNightCat/tmlshock/blob/main/img/no-sec-clock.png)
 
-### Enable-date
+## **Enable-date**
 
 To enable the date just enter `-d true`
 
-Example
+**Example**
 ```sh
 tmlshock clock -d true
 ```
 
 ![date-clock](https://github.com/MHNightCat/tmlshock/blob/main/img/date-clock.png)
 
-### Date-formate
+## **Date-formate**
 
 To use a custom date format just enter `-df 2006/02/01`(YYYY/MM/DD)
 
-Example
+**Example**
 ```sh
 tmlshock clock -d true -df 2006/01/02 
 ```

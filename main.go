@@ -14,7 +14,7 @@ func main() {
 			&cli.StringFlag{
 				Name:    "color",
 				Aliases: []string{"c"},
-				Usage:   "Set the string color see full color in()",
+				Usage:   "Set the string color see full color in(https://github.com/MHNightCat/tmlshock?tab=readme-ov-file#color)",
 			},
 		},
 		Commands: []*cli.Command{
@@ -27,7 +27,60 @@ func main() {
 					&cli.StringFlag{
 						Name:    "color",
 						Aliases: []string{"c"},
-						Usage:   "Set the string color",
+						Usage:   "Set the string color (https://github.com/MHNightCat/tmlshock?tab=readme-ov-file#color)",
+					},
+					&cli.StringFlag{
+						Name:    "disable-hour",
+						Aliases: []string{"dh"},
+						Usage:   "Disable hour(true or false)",
+					},
+					&cli.StringFlag{
+						Name:    "colon-color",
+						Aliases: []string{"cc"},
+						Usage:   "Set the colon color (https://github.com/MHNightCat/tmlshock?tab=readme-ov-file#color)",
+					},
+				},
+			},
+			{
+				Name:    "timer",
+				Aliases: []string{"t"},
+				Usage:   "Start a timer",
+				Action:  util.Timer,
+				Flags: []cli.Flag{
+					&cli.StringFlag{
+						Name:    "color",
+						Aliases: []string{"c"},
+						Usage:   "Set the string color (https://github.com/MHNightCat/tmlshock?tab=readme-ov-file#color)",
+					},
+					&cli.StringFlag{
+						Name:    "hour",
+						Aliases: []string{"hr"},
+						Usage:   "Enter how many hours you want to count down",
+					},
+					&cli.StringFlag{
+						Name:    "minute",
+						Aliases: []string{"m", "min"},
+						Usage:   "Enter how many minunts you want to count down",
+					},
+					&cli.StringFlag{
+						Name:    "second",
+						Aliases: []string{"s", "sec"},
+						Usage:   "Enter how many seconds you want to count down",
+					},
+					&cli.StringFlag{
+						Name:    "timerTime",
+						Aliases: []string{"t"},
+						Usage:   "Enter how many time you want to count down(format: 00:00:00)",
+					},
+					&cli.StringFlag{
+						Name:    "disable-hour",
+						Aliases: []string{"dh"},
+						Usage:   "Disable hour(true or false)",
+					},
+					&cli.StringFlag{
+						Name:    "colon-color",
+						Aliases: []string{"cc"},
+						Usage:   "Set the colon color (https://github.com/MHNightCat/tmlshock?tab=readme-ov-file#color)",
 					},
 				},
 			},
@@ -60,6 +113,11 @@ func main() {
 						Aliases: []string{"df"},
 						Value:   "2006/02/01",
 						Usage:   "Set the clock date formate",
+					},
+					&cli.StringFlag{
+						Name:    "colon-color",
+						Aliases: []string{"cc"},
+						Usage:   "Set the colon color (https://github.com/MHNightCat/tmlshock?tab=readme-ov-file#color)",
 					},
 				},
 			},

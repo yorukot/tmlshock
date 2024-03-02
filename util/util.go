@@ -19,6 +19,17 @@ func StopwatchFormatTime(d time.Duration) string {
 	return fmt.Sprintf("%02d:%02d:%02d.%03d", hours, minutes, seconds, milliseconds)
 }
 
+func StopwatchFormatTimeWihtoutHour(d time.Duration) string {
+	hours := d / time.Hour
+	d -= hours * time.Hour
+	minutes := d / time.Minute
+	d -= minutes * time.Minute
+	seconds := d / time.Second
+	d -= seconds * time.Second
+	milliseconds := d / time.Millisecond
+	return fmt.Sprintf("%02d:%02d.%03d", minutes, seconds, milliseconds)
+}
+
 func formatTime(d time.Time) string {
 	hours := d.Hour()
 	minutes := d.Minute()
