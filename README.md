@@ -8,6 +8,9 @@ Terminal ttl clock, including customizable clock and stopwatch
 ## Contents
 * [Install](#install)
 * [Usage](#Usage)
+  * [Clock](#clock)
+  * [Stopwatch](#stopwatch)
+  * [Timer](#timer)
 * [Setting](#setting)
   * [Color](#color)
     * [Colon color](#colon-color)
@@ -40,7 +43,7 @@ GLOBAL OPTIONS:
    --version, -v            print the version
 ```
 
-### clock
+### Clock
 ```
 NAME:
    tmlshock clock - Start a clock
@@ -56,14 +59,9 @@ OPTIONS:
    --colon-color value, --cc value        Set the colon color 
    --hour-format value, --hf value        Set the clock 24 hr or 12hr (type 24 or 12)
    --help, -h                             show help
-☁  tmlshock [main] ⚡  
 ```
 
-#### **Example:**
-```bash
-tmlshock clock
-```
-### stopwatch
+### Stopwatch
 ```
 USAGE:
    tmlshock stopwatch [command options] [arguments...]
@@ -74,12 +72,8 @@ OPTIONS:
    --colon-color value, --cc value   Set the colon color 
    --help, -h                        show help
 ```
-#### **Example:**
-```bash
-tmlshock stopwatch
-```
 
-### timer
+### Timer
 ```
 USAGE:
    tmlshock timer [command options] [arguments...]
