@@ -9,26 +9,28 @@ import (
 	"github.com/nsf/termbox-go"
 )
 
-func StopwatchFormatTime(d time.Duration) string {
-	hours := d / time.Hour
-	d -= hours * time.Hour
-	minutes := d / time.Minute
-	d -= minutes * time.Minute
-	seconds := d / time.Second
-	d -= seconds * time.Second
-	milliseconds := d / time.Millisecond
-	return fmt.Sprintf("%02d:%02d:%02d.%03d", hours, minutes, seconds, milliseconds)
+func StopwatchFormatTime(d time.Duration, disableMillisecond bool) string {
+    h := d / time.Hour
+    d -= h * time.Hour
+    m := d / time.Minute
+    d -= m * time.Minute
+    s := d / time.Second
+    if disableMillisecond {
+        return fmt.Sprintf("%02d:%02d:%02d", h, m, s)
+    }
+    ms := d % time.Second / time.Millisecond
+    return fmt.Sprintf("%02d:%02d:%02d.%03d", h, m, s, ms)
 }
 
-func StopwatchFormatTimeWihtoutHour(d time.Duration) string {
-	hours := d / time.Hour
-	d -= hours * time.Hour
-	minutes := d / time.Minute
-	d -= minutes * time.Minute
-	seconds := d / time.Second
-	d -= seconds * time.Second
-	milliseconds := d / time.Millisecond
-	return fmt.Sprintf("%02d:%02d.%03d", minutes, seconds, milliseconds)
+func StopwatchFormatTimeWihtoutHour(d time.Duration, disableMillisecond bool) string {
+    m := d / time.Minute
+    d -= m * time.Minute
+    s := d / time.Second
+    if disableMillisecond {
+        return fmt.Sprintf("%02d:%02d", m, s)
+    }
+    ms := d % time.Second / time.Millisecond
+    return fmt.Sprintf("%02d:%02d.%03d", m, s, ms)
 }
 
 func formatTime(d time.Time, use12HourFormat bool) string {

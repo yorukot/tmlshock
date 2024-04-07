@@ -35,9 +35,9 @@ func Stopwatch(cCtx *cli.Context) error {
 			termbox.Clear(termbox.ColorDefault, termbox.ColorDefault)
 			NowTime := ""
 			if cCtx.String("disable-hour") == "true" {
-				NowTime = StopwatchFormatTimeWihtoutHour(current)
+				NowTime = StopwatchFormatTimeWihtoutHour(current, false)
 			}else{
-				NowTime = StopwatchFormatTime(current)
+				NowTime = StopwatchFormatTime(current, false)
 			}
 			diff := -38
 			totalString := 12

@@ -12,6 +12,9 @@ import (
 var SmallTimerDiff = [11]int{7, 6, 6, 7, 6, 6, 7, 6, 4, 7, 7}
 var SmallTimerWithoutHourDiff = [11]int{7, 6, 6, 7, 6, 4, 7, 7}
 
+var SmallTimerWithoutHourAndMillisecondDiff = [11]int{7, 6, 6, 7, 6}
+var SmallTimerWithoutMillisecondDiff = [11]int{7, 6, 6, 7, 6, 6, 7, 6}
+
 func Timer(cCtx *cli.Context) error {
 	err := termbox.Init()
 	if err != nil {
@@ -51,25 +54,36 @@ func Timer(cCtx *cli.Context) error {
 			termbox.Clear(termbox.ColorDefault, termbox.ColorDefault)
 			NowTime := ""
 
+			disableMillisecond := cCtx.String("disable-millisecond") == "true"
 			if cCtx.String("disable-hour") == "true" {
+
 				if current <= 0 {
 					NowTime = "00:00.000"
 				} else {
-					NowTime = StopwatchFormatTimeWihtoutHour(current)
+					NowTime = StopwatchFormatTimeWihtoutHour(current, disableMillisecond)
 				}
 			} else {
 				if current <= 0 {
 					NowTime = "00:00:00.000"
 				} else {
-					NowTime = StopwatchFormatTime(current)
+					NowTime = StopwatchFormatTime(current, disableMillisecond)
 				}
 			}
 			diff := -38
 			totalString := 12
 			if cCtx.String("disable-hour") == "true" {
-				totalString = 9
-				diff = -29
+				if disableMillisecond {
+					totalString = 5
+					diff = -16
+				} else {
+					totalString = 9
+					diff = -29
+				}
+			} else if disableMillisecond {
+				totalString = 8
+				diff = -25
 			}
+
 			for i := 0; i < totalString; i++ {
 				if i != 0 {
 					if cCtx.String("disable-hour") == "true" {

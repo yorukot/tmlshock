@@ -78,6 +78,11 @@ func main() {
 						Usage:   "Disable hour(true or false)",
 					},
 					&cli.StringFlag{
+						Name:    "disable-millisecond",
+						Aliases: []string{"dm"},
+						Usage:   "Disable millisecond(true or false)",
+					},
+					&cli.StringFlag{
 						Name:    "colon-color",
 						Aliases: []string{"cc"},
 						Usage:   "Set the colon color (https://github.com/MHNightCat/tmlshock?tab=readme-ov-file#color)",
