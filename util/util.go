@@ -93,7 +93,10 @@ func FlagColor(ColorString string) termbox.Attribute {
 		if ColorString == "" {
 			return termbox.ColorGreen
 		} else {
-			num, _ := strconv.Atoi(ColorString)
+			num, err := strconv.Atoi(ColorString)
+			if err != nil || num > 256 || num < 1 {
+				return termbox.ColorGreen
+			}
 			return termbox.Attribute(num)
 		}
 	}
