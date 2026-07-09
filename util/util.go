@@ -9,6 +9,11 @@ import (
 	"github.com/nsf/termbox-go"
 )
 
+// doublePressWindow is the maximum gap between two space bar presses for
+// them to count as a double press (reset and auto-restart) rather than
+// two separate single presses (pause/resume).
+const doublePressWindow = 500 * time.Millisecond
+
 func StopwatchFormatTime(d time.Duration, disableMillisecond bool) string {
     h := d / time.Hour
     d -= h * time.Hour
