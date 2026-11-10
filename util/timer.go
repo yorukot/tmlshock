@@ -2,11 +2,13 @@ package util
 
 import (
 	"fmt"
-	"github.com/nsf/termbox-go"
-	"github.com/urfave/cli/v2"
 	"os"
+	"os/exec"
 	"strconv"
 	"time"
+
+	"github.com/nsf/termbox-go"
+	"github.com/urfave/cli/v2"
 )
 
 var SmallTimerDiff = [11]int{7, 6, 6, 7, 6, 6, 7, 6, 4, 7, 7}
@@ -16,6 +18,17 @@ var SmallTimerWithoutHourAndMillisecondDiff = [11]int{7, 6, 6, 7, 6}
 var SmallTimerWithoutMillisecondDiff = [11]int{7, 6, 6, 7, 6, 6, 7, 6}
 
 func Timer(cCtx *cli.Context) error {
+	script := cCtx.String("script")
+	if script != "" {
+		info, err := os.Stat(script)
+		if err != nil {
+			return err
+		}
+		if info.IsDir() || info.Mode()&0o111 == 0 {
+			return fmt.Errorf("%s is not an executable", script)
+		}
+	}
+
 	err := termbox.Init()
 	if err != nil {
 		fmt.Println("failed to initialize termbox:", err)
@@ -48,6 +61,7 @@ func Timer(cCtx *cli.Context) error {
 	go func() {
 		duration := time.Duration(total) * time.Second
 		end := time.Now().Add(duration)
+		ran := false
 		for {
 			termWidth, termHeight := termbox.Size()
 			current := time.Until(end)
@@ -99,6 +113,11 @@ func Timer(cCtx *cli.Context) error {
 				}
 			}
 			termbox.Flush()
+
+			if current <= 0 && script != "" && !ran {
+				ran = true
+				_ = exec.Command(script).Start()
+			}
 
 			time.Sleep(time.Millisecond)
 		}
