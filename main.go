@@ -87,6 +87,10 @@ func main() {
 						Aliases: []string{"cc"},
 						Usage:   "Set the colon color (https://github.com/MHNightCat/tmlshock?tab=readme-ov-file#color)",
 					},
+					&cli.StringFlag{
+						Name:  "script",
+						Usage: "Script to run when the timer finishes",
+					},
 				},
 			},
 			{
